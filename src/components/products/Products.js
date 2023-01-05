@@ -25,7 +25,7 @@ function Products() {
 
   return (
     <>
-      <h2 className="text-center p-5 mt-3">Our Products</h2>
+      <h2 className="text-center p-5 mt-3">Products</h2>
       <div className="container">
         <div className="mb-3 buttons-grid">
           <button
