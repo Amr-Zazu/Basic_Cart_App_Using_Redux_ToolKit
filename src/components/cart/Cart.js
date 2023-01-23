@@ -9,7 +9,6 @@ import "./cart.css";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
-  // console.log(cart);
   const dispatch = useDispatch();
 
   const totalPrice = cart.reduce((acc, product) => {

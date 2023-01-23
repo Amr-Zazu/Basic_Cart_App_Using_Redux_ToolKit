@@ -1,18 +1,16 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-
-import "./style.css";
-
 import image from "./../../images/login.png";
 import { useAuth } from "../auth";
+
+import "./style.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const auth = useAuth();
-
   const redirectPath = location.state?.path || "/";
 
   const handleLogin = () => {

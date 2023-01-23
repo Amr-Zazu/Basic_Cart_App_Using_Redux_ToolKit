@@ -1,22 +1,21 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
 import { useNavigate } from "react-router-dom";
-
+import { clear } from "../rtk/slices/cart-slice";
 import { useAuth } from "./auth";
 
 function AppNavbar() {
   const auth = useAuth();
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  // console.log(`this is: ${cart.length}`);
 
   const handleLogout = () => {
     auth.logout();
+    dispatch(clear());
     navigate("/");
   };
 

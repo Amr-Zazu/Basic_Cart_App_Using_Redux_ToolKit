@@ -8,7 +8,6 @@ export const cartSlice = createSlice({
       const findProduct = state.find(
         (product) => product.id === action.payload.id
       );
-      console.log(findProduct);
       if (findProduct) {
         findProduct.quantity += 1;
       } else {

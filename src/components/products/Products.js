@@ -15,11 +15,7 @@ function Products() {
   const auth = useAuth();
   const navigate = useNavigate();
   const products = useSelector((state) => state.products);
-  // console.log(products);
-
   const categories = useSelector((state) => state.categories);
-  // console.log(categories);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
