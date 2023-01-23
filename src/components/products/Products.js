@@ -1,20 +1,24 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../rtk/slices/cart-slice";
 import { productsCategories } from "../../rtk/slices/categories-slice";
 import {
   fetchProducts,
   productsInCategory,
 } from "../../rtk/slices/products-slice";
+import { useAuth } from "./../auth";
 
 import "./products.css";
 
 function Products() {
+  const auth = useAuth();
+  const navigate = useNavigate();
   const products = useSelector((state) => state.products);
-  console.log(products);
+  // console.log(products);
 
   const categories = useSelector((state) => state.categories);
-  console.log(categories);
+  // console.log(categories);
 
   const dispatch = useDispatch();
 
@@ -25,7 +29,7 @@ function Products() {
 
   return (
     <>
-      <h2 className="text-center p-5 mt-3">Products</h2>
+      <h2 className="text-center p-5 mt-5 h1">Our Products</h2>
       <div className="container">
         <div className="mb-3 buttons-grid">
           <button
@@ -66,6 +70,7 @@ function Products() {
                       {product.title}
                     </h5>
                     <div className="card-text">Price: ${product.price}</div>
+
                     <button
                       className="btn mt-3 btn-primary"
                       style={{
@@ -73,7 +78,11 @@ function Products() {
                         margin: "auto",
                         width: "fit-content",
                       }}
-                      onClick={() => dispatch(addToCart(product))}
+                      onClick={() =>
+                        !auth.user
+                          ? navigate("/login")
+                          : dispatch(addToCart(product))
+                      }
                     >
                       Add to cart
                     </button>
