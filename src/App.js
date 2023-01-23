@@ -5,7 +5,6 @@ import Cart from "./components/cart/Cart";
 import Login from "./components/Login";
 import Products from "./components/products/Products";
 import { RequireAuth } from "./components/RequireAuth";
-// import Products from "./components/Products/Products";
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
         <AppNavbar />
         <Routes>
           <Route path="/" element={<Products />} />
-          {/* <Route path="/cart" element={<Cart />} /> */}
           <Route path="/login" element={<Login />} />
           <Route
             path="/cart"

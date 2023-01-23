@@ -12,13 +12,14 @@ function AppNavbar() {
   const auth = useAuth();
   const navigate = useNavigate();
 
+  const cart = useSelector((state) => state.cart);
+  // console.log(`this is: ${cart.length}`);
+
   const handleLogout = () => {
     auth.logout();
     navigate("/");
-    cart.length = 0;
   };
 
-  const cart = useSelector((state) => state.cart);
   return (
     <Navbar className="navbar-dark bg-dark" fixed="top" bg="light" expand="lg">
       <Container>
@@ -50,13 +51,6 @@ function AppNavbar() {
                 Logout
               </Link>
             )}
-
-            {/* <Link to="/" className="navbar-brand">
-              Products
-            </Link>
-            <Link to="/cart" className="navbar-brand float-left">
-              Cart - {cart.length} <i className="fa-solid fa-cart-shopping"></i>
-            </Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

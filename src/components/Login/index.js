@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import "./style.css";
-// import image from "./../../images/login.png";
-import image from "./../images/login.png";
+
+import image from "./../../images/login.png";
 import { useAuth } from "../auth";
 
 const Login = () => {
@@ -17,6 +17,7 @@ const Login = () => {
 
   const handleLogin = () => {
     auth.login(email);
+    navigate("/");
     navigate(redirectPath, { replace: true });
   };
 
